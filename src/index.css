@@ -19,16 +19,19 @@ html {
 
 body {
   height: 100vh;
+  margin: 10px;
   color: #495057;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* position: absolute; */
 }
 
 .app {
   min-height: 66vh;
   display: grid;
-  grid-template-columns: 34rem 44rem;
+  /* grid-template-columns: 34rem 44rem; */
+  grid-template-columns: 1fr 1.25fr;
   column-gap: 4rem;
   align-items: start;
 }
