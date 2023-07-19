@@ -52,7 +52,7 @@ function Friend({friend}) {
         </p>
       )}
 
-      {friend.balance < 0 && (
+      {friend.balance > 0 && (
         <p className="green"> { friend.name } owes you {Math.abs(friend.balance)}</p>
       )}
 
