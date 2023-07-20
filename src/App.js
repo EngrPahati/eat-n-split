@@ -87,10 +87,11 @@ function FriendList({friends, onSelection, selectedFriend}) {
 }
 
 function Friend({ friend, onSelection, selectedFriend }) {
-  const isSelected = friend === selectedFriend;
+  const isSelected = selectedFriend?.id === friend.id;
+
 
   return (
-    <li>
+    <li className={isSelected ? "selected" : ""}>
       <img src={friend.image} alt={ friend.name } />
       <h3>{friend.name}</h3>
       {friend.balance < 0 && (
@@ -108,7 +109,7 @@ function Friend({ friend, onSelection, selectedFriend }) {
       )}
       <Button
         onClick={() => onSelection(friend)}
-      >Select</Button>
+      >{ isSelected ? `Close` : `Select`}</Button>
     </li>
   );
 }
