@@ -44,15 +44,9 @@ export default function App() {
 
         {showAddFriend && <FormAddFriend />}
 
-        {!showAddFriend &&
-          <Button onClick={handleShowAddFriend}>
-            Add Friend
-          </Button>}
-
-        {showAddFriend && <Button
-          onToggle={setShowAddFriend}
-          showAddFriend={showAddFriend}
-        >Close</Button>}
+        <Button onClick={handleShowAddFriend}>
+          { showAddFriend? 'Close' : 'Add Friend' }
+        </Button>
 
 
       </div>
@@ -99,10 +93,14 @@ function Friend({friend}) {
 
 
 function FormAddFriend() {
+  const [name, setName] = useState('');
+  // const [image, setImage] = useState('');
+
+
   return (
     <form className="form-add-friend">
       <label>👨🏽‍🤝‍👨🏽Friend Name</label>
-      <input type='text' />
+      <input type='text' value={name} onChange={e => setName(e.target.value)} />
 
       <label>👩‍🏫 Image URL</label>
       <input type="text" />
