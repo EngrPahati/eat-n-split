@@ -21,17 +21,21 @@ const initialFriends = [
   },
 ];
 
-function Button({ children, onToggle, showAddFriend }) {
+function Button({ children, onClick }) {
   return (
     <button
       className="button"
-      onClick={() => onToggle(!showAddFriend)}
+      onClick={onClick}
     >{children}</button>
   );
 }
 
 export default function App() {
   const [showAddFriend, setShowAddFriend] = useState(false);
+
+  function handleShowAddFriend() {
+    setShowAddFriend(!showAddFriend);
+  }
 
   return (
     <div className="app">
@@ -40,10 +44,10 @@ export default function App() {
 
         {showAddFriend && <FormAddFriend />}
 
-        {!showAddFriend &&         <Button
-          onToggle={setShowAddFriend}
-          showAddFriend={showAddFriend}
-        >Add Friend</Button>}
+        {!showAddFriend &&
+          <Button onClick={handleShowAddFriend}>
+            Add Friend
+          </Button>}
 
         {showAddFriend && <Button
           onToggle={setShowAddFriend}
