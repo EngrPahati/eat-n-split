@@ -110,7 +110,7 @@ function FormAddFriend() {
       <input
         type="text"
         value={image}
-        setImage={e => setImage(e.target.value)}
+        onChange={e => setImage(e.target.value)}
       />
       
       <Button>Add</Button>
